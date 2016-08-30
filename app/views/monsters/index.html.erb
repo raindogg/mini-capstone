@@ -1,12 +1,16 @@
 <h1>All available mosters:</h1>
 
-<% @monsters.each do |monster| %>
-<img src=<%= monster.image %>>
-<h1><%= monster.name %></h1>
-<p><%= monster.description %></p>
+<div class="row">
+    <% @monsters.each do |monster| %>
+    <div class="col-md-4">
+    <img src=<%= monster.image %>>
+    <h1><%= monster.name %></h1>
+    <p><%= monster.description %></p>
 
-<h3>Origin: <%= monster.origin %></h3>
-<h3>Danger Rating: <%= monster.danger_rating %></h3>
-<h3>Price: $<%= monster.price %></h3>
+    <h3>Origin: <%= monster.origin %></h3>
+    <h3>Danger Rating: <%= monster.danger_rating %></h3>
+    <h3>Price: $<%= monster.price %></h3>
+    </div>
+    <% end %>
 
-<% end %>
+</div>
