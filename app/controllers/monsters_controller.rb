@@ -11,7 +11,6 @@ class MonstersController < ApplicationController
 
   def new
     @page_title = "Add monster"
-    p "**********************************************"
   end
 
   def create
@@ -22,7 +21,8 @@ class MonstersController < ApplicationController
                               description: params[:description], 
                               image: params[:image],
                               danger_rating: params[:danger])
-    render 'show.html.erb'
+    flash[:success] = "#{@monster.name} has been submitted."
+    redirect_to "/monsters/#{@monster.id}"
   end
 
   def edit 
@@ -37,6 +37,16 @@ class MonstersController < ApplicationController
                     description: params[:description],
                     image: params[:image],
                     danger_rating: params[:danger_rating])
-    render 'show.html.erb'
+    flash[:success] = "#{@monster.name} has been updated."
+    redirect_to "/monsters/#{@monster.id}"
+  end
+
+  def destroy
+    @monster = Monster.find(params[:id])
+    flash[:warning] = "#{@monster.name} is no more."
+
+    @monster.destroy
+
+    redirect_to '/monsters'
   end
 end
