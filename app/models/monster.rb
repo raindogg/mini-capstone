@@ -1,10 +1,6 @@
 class Monster < ApplicationRecord
-  def sale_message
-    if price <= 2 
-      message = "Discount monster!"
-    else
-      message = "This monster is for sale."
-    end
+  def discounted?
+    price <= 30 
   end
 
   def tax
