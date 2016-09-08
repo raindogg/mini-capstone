@@ -1,12 +1,14 @@
-
+<div class="container">
 <img src="<%= @monster.image %>">
-<h2><%= @monster.name %></h2>
+<h2 class="header-title"><%= @monster.name %></h2>
 <p><%= @monster.description %></p>
 
 <h3>Origin: <%= @monster.origin %></h3>
 <h3>Danger Rating: <%= @monster.danger_rating %></h3>
 <h3>Price: $<%= @monster.price %></h3>
+<h3><%= @monster.sale_message %></h3>
 
 <%= link_to 'Edit this monster', "/monsters/#{@monster.id}/edit" %>
 <br>
 <%= link_to 'Destroy this monster', "/monsters/#{@monster.id}", method: :delete %>
+</div>

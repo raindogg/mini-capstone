@@ -1,16 +1,18 @@
-<h1>All available monsters:</h1>
+<h1 class="header-title">All available monsters:</h1>
 
 <div class="row">
     <% @monsters.each do |monster| %>
-    <div class="col-md-4">
-    <img src=<%= monster.image %>>
-    <h2><%= link_to "#{monster.name}", "/monsters/#{monster.id}" %></h2>
-    <!-- can use the <a href="/monsters/<%= monster.id %>" method too. -->
-    <p><%= monster.description %></p>
+    <div class="col-md-4 index-item">
 
-    <h3>Origin: <%= monster.origin %></h3>
-    <h3>Danger Rating: <%= monster.danger_rating %></h3>
-    <h3>Price: $<%= monster.price %></h3>
+        <a href="/monsters/<%= monster.id %>" ><img src=<%= monster.image %>></a>
+        <h2><%= link_to "#{monster.name}", "/monsters/#{monster.id}" %></h2>
+        <!-- can use the <a href="/monsters/<%= monster.id %>" method too. -->
+        <p><%= monster.description %></p>
+
+        <h3>Origin: <%= monster.origin %></h3>
+        <h3>Danger Rating: <%= monster.danger_rating %></h3>
+        <h3>Price: $<%= monster.price %></h3>
+
     </div>
     <% end %>
 
