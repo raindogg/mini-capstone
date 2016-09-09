@@ -36,7 +36,8 @@ class MonstersController < ApplicationController
                     price: params[:price],
                     description: params[:description],
                     image: params[:image],
-                    danger_rating: params[:danger_rating])
+                    danger_rating: params[:danger_rating],
+                    in_stock: params[:in_stock])
     flash[:success] = "#{@monster.name} has been updated."
     redirect_to "/monsters/#{@monster.id}"
   end
