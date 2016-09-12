@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get '/' => 'monsters#index'
   get '/monsters' => 'monsters#index'
+  get '/monsters/random' => 'monsters#random'
   get '/monsters/new' => 'monsters#new'
   post '/monsters' => 'monsters#create'
   get '/monsters/:id' => 'monsters#show'

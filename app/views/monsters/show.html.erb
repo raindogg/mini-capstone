@@ -3,8 +3,11 @@
 <h2 class="header-title"><%= @monster.name %></h2>
 <% if @monster.discounted? %>
   <h3>Discount monster!</h3>
+<% end %>
+<% if @monster.in_stock %>
+  <h3>In stock</h3>
 <% else %>
-  <h3>This monster is for sale.</h3>
+  <h3>Currently unavailable</h3>
 <% end %>
 <p><%= @monster.description %></p>
 

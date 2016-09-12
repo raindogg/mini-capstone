@@ -15,6 +15,14 @@ a.nav-link {
   color: white;
 }
 
+a.dropdown-toggle {
+  color: white; 
+}
+
+.form_control {
+  color: black;
+}
+
 body {
   font-family: Copperplate, "Copperplate Gothic Light", fantasy;
   font-size: 24px;
@@ -38,4 +46,8 @@ ul a:hover {
 
 .discount-price {
   color: red;
+}
+.index-item {
+  height: 700px;
+  width: 375px; 
 }

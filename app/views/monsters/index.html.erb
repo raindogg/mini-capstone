@@ -1,7 +1,8 @@
 <h1 class="header-title">All available monsters:</h1>
-
-<div class="row">
+    <div class="container">
+    <div class="row">
     <% @monsters.each do |monster| %>
+
     <div class="col-md-4 index-item">
 
         <a href="/monsters/<%= monster.id %>" ><img src=<%= monster.image %>></a>
@@ -11,9 +12,10 @@
 
         <h3>Origin: <%= monster.origin %></h3>
         <h3>Danger Rating: <%= monster.danger_rating %></h3>
-        <h3>Price: $<%= monster.price %></h3>
+        <h3>Price: <%= number_to_currency(monster.price) %></h3>
 
-    </div>
+     </div>
     <% end %>
+    </div>
+    </div>
 
-</div>
