@@ -46,7 +46,8 @@ class MonstersController < ApplicationController
                               price: params[:price], 
                               description: params[:description], 
                               image: params[:image],
-                              danger_rating: params[:danger])
+                              danger_rating: params[:danger],
+                              supplier_id: params[:supplier_id])
     flash[:success] = "#{@monster.name} has been submitted."
     redirect_to "/monsters/#{@monster.id}"
   end
@@ -63,7 +64,8 @@ class MonstersController < ApplicationController
                     description: params[:description],
                     image: params[:image],
                     danger_rating: params[:danger_rating],
-                    in_stock: params[:in_stock])
+                    in_stock: params[:in_stock],
+                    supplier_id: params[:supplier_id])
     flash[:success] = "#{@monster.name} has been updated."
     redirect_to "/monsters/#{@monster.id}"
   end

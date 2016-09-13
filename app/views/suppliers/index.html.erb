@@ -1,0 +1,18 @@
+<h1 class="header-title">Meet our suppliers:</h1>
+    <div class="container">
+    <div class="row">
+    <% @suppliers.each do |supplier| %>
+
+    <div class="col-md-4 index-item">
+
+        <h1><%= supplier.name %></h1>
+        <h2>Name: <%= supplier.phone %></h2>
+        <h2>Email: <%= supplier.email %></h2>
+        <h2>Supplier Id: <%= supplier.id %></h2>
+
+
+     </div>
+    <% end %>
+    </div>
+    </div>
+
