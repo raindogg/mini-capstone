@@ -27,6 +27,9 @@ class MonstersController < ApplicationController
   def show
     @page_title = "Monster!"
     @monster = Monster.find(params[:id])
+    @supplier = @monster.supplier
+    @images = @monster.images
+
   end
 
   def random

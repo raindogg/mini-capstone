@@ -11,17 +11,25 @@
   <body>
   <nav class="navbar navbar-dark bg-primary">
     <ul class="nav navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="/monsters">All monsters<span class="sr-only">(current)</span></a>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Monsters<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+        <li><a href="/monsters">All monsters</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/monsters/new">Submit a Monster</a>
+      <li><a class="nav-link" href="/monsters/new">Submit a Monster</a>
       </li>
-        <li class="nav-item">
-        <a class="nav-link" href="/monsters/random">Random Monster</a>
+        <li><a class="nav-link" href="/monsters/random">Random Monster</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/suppliers">All suppliers</a>
+      </ul>
+      </li>
+     <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Suppliers<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+        <li><a href="/suppliers">All suppliers</a>
+      </li>
+      <li><a class="nav-link" href="/suppliers/new">Become a supplier</a>
+      </li>
+      </ul>
       </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort <span class="caret"></span></a>

@@ -5,7 +5,7 @@
 
     <div class="col-md-4 index-item">
 
-        <a href="/monsters/<%= monster.id %>" ><img src=<%= monster.image %>></a>
+        <a href="/monsters/<%= monster.id %>" ><img src=<%= monster.images.first.url %>></a>
         <h2><%= link_to "#{monster.name}", "/monsters/#{monster.id}" %></h2>
         <!-- can use the <a href="/monsters/<%= monster.id %>" method too. -->
         <p><%= monster.description %></p>

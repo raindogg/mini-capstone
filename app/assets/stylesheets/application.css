@@ -14,5 +14,53 @@
  *= require_self
  */
 
+img {
+  width: 300px;
+  height: 300px; 
+}
 
+h1 {
+  text-align: center;
+}
+
+a.nav-link {
+  color: white;
+}
+
+a.dropdown-toggle {
+  color: white; 
+}
+
+.form_control {
+  color: black;
+}
+
+body {
+  font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+  font-size: 24px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  line-height: 26.4px;
+  background-image: url('noisy_net.png');
+  color: white;
+}
+a:hover {
+  color: #930a0a;
+}
+ul a:hover {
+  color: #930a0a;
+}
+
+.header-title {
+  color: #930a0a;
+}
+
+.discount-price {
+  color: red;
+}
+.index-item {
+  height: 700px;
+  width: 375px; 
+}
 

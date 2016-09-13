@@ -5,6 +5,12 @@
 
 <h3>Phone: <%= @supplier.phone %></h3>
 
+<h2 class="header-title">All monsters supplied by <%=@supplier.name %>:</h2>
+<ul>
+  <% @monsters.each do |monster| %>
+      <li><a href="/monsters/<%= monster.id %>"><%= monster.name %></a></li>
+  <% end %>
+</ul>
 <%= link_to 'Edit this supplier', "/suppliers/#{@supplier.id}/edit" %>
 <br>
 <%= link_to 'Destroy this supplier', "/suppliers/#{@supplier.id}", method: :delete %>

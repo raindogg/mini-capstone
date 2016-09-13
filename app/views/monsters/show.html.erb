@@ -1,5 +1,12 @@
 <div class="container">
-<img src="<%= @monster.image %>">
+  <div class="row">
+<% @images.each do |image| %>
+<div class="col-md-4">
+  <img src="<%= image.url %>" class="show-images">
+    <h6><%= link_to "Remove image", "/images/#{image.id}", method: :delete %></h6>
+    </div>
+<% end %>
+</div>
 <h2 class="header-title"><%= @monster.name %></h2>
 <% if @monster.discounted? %>
   <h3>Discount monster!</h3>
@@ -16,6 +23,7 @@
 <h3>Price: <%= number_to_currency(@monster.price) %></h3>
 <h3>Tax: <%= number_to_currency(@monster.tax) %></h3>
 <h3 class="<%= "discount-price" if @monster.discounted? %>">You pay: <%= number_to_currency(@monster.total) %></h3>
+<p>This monster is supplied by <a href="/suppliers/<%= @supplier.id %>"><%= @supplier.name %> </a></p>
 
 <%= link_to 'Edit this monster', "/monsters/#{@monster.id}/edit" %>
 <br>

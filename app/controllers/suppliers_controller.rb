@@ -13,6 +13,7 @@ class SuppliersController < ApplicationController
 
   def show
     @supplier = Supplier.find(params[:id])
+    @monsters = @supplier.monsters.all
   end
 
   def edit

@@ -1,5 +1,6 @@
 class Monster < ApplicationRecord
   belongs_to :supplier
+  has_many :images
   
   def discounted?
     price <= 30 
