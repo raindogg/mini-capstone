@@ -39,6 +39,8 @@
             <li><a href="/monsters?discount=30">Discounted only</a></li>
           </ul>
         </li>
+        <li><a href="/signup">Sign up!</a></li>
+        <li><%= link_to 'Log out', '/logout', method: :delete %>
       </ul>
       <%= form_tag '/monsters', method: :get, class: 'navbar-form navbar-right' do %>
         <div class="form-group">
