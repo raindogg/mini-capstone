@@ -1,11 +1,11 @@
-<h1 class="header-title">All available monsters:</h1>
+ <h1 class="header-title">All available monsters:</h1>
     <div class="container">
     <div class="row">
     <% @monsters.each do |monster| %>
 
     <div class="col-md-4 index-item">
 
-        <a href="/monsters/<%= monster.id %>" ><img src=<%= monster.images.first.url %>></a>
+        <a href="/monsters/<%= monster.id %>" ><img src=<%= monster.top_image %>></a>
         <h2><%= link_to "#{monster.name}", "/monsters/#{monster.id}" %></h2>
         <!-- can use the <a href="/monsters/<%= monster.id %>" method too. -->
         <p><%= monster.description %></p>

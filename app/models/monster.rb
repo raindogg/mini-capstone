@@ -13,4 +13,13 @@ class Monster < ApplicationRecord
   def total 
     (price + tax).round(2)
   end
+
+  def top_image
+    first_image = images.first
+    if first_image
+      images.first.url
+    else
+      "https://s-media-cache-ak0.pinimg.com/236x/a1/8a/8b/a18a8b5a3ba04b08ddcc97ebfc4d145c.jpg"
+    end
+  end
 end
