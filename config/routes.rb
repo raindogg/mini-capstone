@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/monsters/:id/edit' => 'monsters#edit'
   patch '/monsters/:id' => 'monsters#update'
   delete '/monsters/:id' => 'monsters#destroy'
+  
   get '/suppliers' => 'suppliers#index'
   get '/suppliers/new' => 'suppliers#new'
   post '/suppliers' => 'suppliers#create'
@@ -25,4 +26,8 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
+
+  post '/orders' => 'orders#create'
+  get '/orders/:id' => 'orders#show'
+
 end

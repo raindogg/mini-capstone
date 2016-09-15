@@ -69,11 +69,13 @@ class MonstersController < ApplicationController
                     origin: params[:origin],
                     price: params[:price],
                     description: params[:description],
-                    image: params[:image],
                     danger_rating: params[:danger_rating],
                     in_stock: params[:in_stock],
                     supplier_id: params[:supplier_id])
     flash[:success] = "#{@monster.name} has been updated."
+    Image.create(url: params[:image], monster_id: @monster.id) if params[:image]
+    Image.create(url: params[:image_2], monster_id: @monster.id) if params[:image_2]
+
     redirect_to "/monsters/#{@monster.id}"
   end
 

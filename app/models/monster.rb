@@ -1,6 +1,7 @@
 class Monster < ApplicationRecord
   belongs_to :supplier
   has_many :images
+  has_many :orders
   
   def discounted?
     price <= 30 
@@ -11,7 +12,7 @@ class Monster < ApplicationRecord
   end
 
   def total 
-    (price + tax).round(2)
+    (price + tax)
   end
 
   def top_image

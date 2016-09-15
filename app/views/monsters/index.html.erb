@@ -1,4 +1,9 @@
  <h1 class="header-title">All available monsters:</h1>
+
+      <li><a href="/monsters?sort=price">Sort price, ascending</a></li>
+      <li><a href="/monsters?sort=price&sort_order=desc">Sort price, descending</a></li>
+      <li><a href="/monsters?discount=30">Discounted only</a></li>
+
     <div class="container">
     <div class="row">
     <% @monsters.each do |monster| %>
