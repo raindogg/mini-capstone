@@ -1,4 +1,13 @@
-<h1>Your order:</h1>
 
-<p>You ordered <%= @order.quantity %> <%= @order.monster.name %></p>
+<h1>Thanks for your order <%= @user.name %>! A confirmation email will be sent to <%= @user.email %>. </h1>
+<div class="container">
+<h2>Order # <%= @order.id_present_to_customer %>:</h2>
+
+<p> <%= @order.quantity %> <%= @monster.name %></p>
+<img src='<%= @monster.top_image %>'>
+<p>Subtotal: <%= number_to_currency(@order.subtotal) %></p>
+<p>Tax: <%= number_to_currency(@order.tax) %>
+<p>Total: <%= number_to_currency(@order.total) %></p>
+<p>This order was purchased on <%= @order.pretty_created_at %>. Please allow 2-3 weeks for delivery.</p>
+</div>
 

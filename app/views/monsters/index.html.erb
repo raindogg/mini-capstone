@@ -1,10 +1,12 @@
+<div class="container">
+    <div class='btn-group'>
+      <button type='btn col-md-4'><a href="/monsters?sort=price">Sort price, ascending</a></button>
+      <button type='btn col-md-4'><a href="/monsters?sort=price&sort_order=desc">Sort price, descending</a></button>
+      <button type='btn col-md-4'><a href="/monsters?discount=30">Discounted only</a></button>
+    </div>
  <h1 class="header-title">All available monsters:</h1>
+    <br>
 
-      <li><a href="/monsters?sort=price">Sort price, ascending</a></li>
-      <li><a href="/monsters?sort=price&sort_order=desc">Sort price, descending</a></li>
-      <li><a href="/monsters?discount=30">Discounted only</a></li>
-
-    <div class="container">
     <div class="row">
     <% @monsters.each do |monster| %>
 
