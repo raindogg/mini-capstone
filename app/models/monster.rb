@@ -1,7 +1,9 @@
 class Monster < ApplicationRecord
   belongs_to :supplier
   has_many :images
-  has_many :orders
+  has_many :category_monsters
+  has_many :categories, through: :category_monsters
+  has_many :carted_products
   
   def discounted?
     price <= 30 

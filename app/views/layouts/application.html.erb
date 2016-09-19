@@ -20,6 +20,12 @@
       </li>
         <li><a class="nav-link" href="/monsters/random">Random Monster</a>
       </li>
+      <li class="divider">
+      <li>Categories</li>
+      <% @categories_list.each do |category| %>
+        <li><a class="nav-link" href="/monsters?category=<%= category.name %>"> <%= category.name %></a></li>
+      <% end %>
+      </li>
       </ul>
       </li>
      <li class="dropdown">
