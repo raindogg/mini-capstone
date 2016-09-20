@@ -1,0 +1,12 @@
+<h1>Your cart:</h1>
+
+<% @carted.each do |product| %>
+  <h3><%= product.status %></h3>
+  <h3><%= product.quantity%></h3>
+<% end %>
+
+<%= form_tag '/orders', method: :post do %>
+  <% label_tag :subtotal %>
+  <% hidden_field_tag :subtotal, @subtotal %>
+
+<% end %>

@@ -40,6 +40,7 @@
         <% if current_user %>
           <li><%= link_to 'Log out', '/logout', method: :delete %>
           <li><a>Hello <%= current_user.name %></a></li>
+          <li><a href="/checkout">Your cart</a></li>
         <% else %>
           <li><a href="/signup">Sign up!</a></li>
           <li><a href='/login'>Log in</a></li>

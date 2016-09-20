@@ -37,7 +37,7 @@
 
 
 <h2>Buy this monster!</h2>
-<%= form_tag '/orders', method: :post do %>
+<%= form_tag '/carted_products', method: :post do %>
   <div>
   <%= label_tag :quantity %>
   <%= text_field_tag :quantity, nil, class: 'entry' %>
@@ -46,7 +46,7 @@
   <%= hidden_field_tag :monster_id, "#{@monster.id}", class: 'entry' %>
   </div>
   <div>
-    <%= submit_tag 'Buy Now!', class: 'entry' %>
+    <%= submit_tag 'Add to cart', class: 'entry' %>
   </div>
 <% end %>
 </div>

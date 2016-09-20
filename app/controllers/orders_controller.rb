@@ -1,12 +1,9 @@
 class OrdersController < ApplicationController
   def create
-    monster = Monster.find(params[:monster_id])
 
     @order = Order.new(user_id: current_user.id,
-                       quantity: params[:quantity].to_i,
-                       monster_id: params[:monster_id])
+                       subtotal: params[:subtotal])
   
-    @order.calculate_subtotal(monster)
     @order.calculate_tax
     @order.calculate_total
     @order.save
