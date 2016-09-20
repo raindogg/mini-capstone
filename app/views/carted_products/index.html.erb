@@ -1,12 +1,19 @@
 <h1>Your cart:</h1>
-
+<div class="container">
 <% @carted.each do |product| %>
-  <h3><%= product.status %></h3>
-  <h3><%= product.quantity%></h3>
+  <h3>Monster: <%= product.monster.name %></h3>
+  <img src='<%= product.monster.top_image %>'>
+  <h3>Quantity: <%= product.quantity%></h3>
+  <%= form_tag '/remove', method: :delete do %>
+    <%= hidden_field_tag :product, product.id %>
+    <%= submit_tag 'Remove monster from cart', class: 'entry' %>
+  <% end %>
 <% end %>
+<h3>Subtotal: <%= number_to_currency(@subtotal) %></h3>
 
 <%= form_tag '/orders', method: :post do %>
-  <% label_tag :subtotal %>
-  <% hidden_field_tag :subtotal, @subtotal %>
+  <%= hidden_field_tag :subtotal, @subtotal %>
+<%= submit_tag 'Buy now!', class: 'entry' %>
 
 <% end %>
+</div>

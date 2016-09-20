@@ -1,6 +1,5 @@
 class CartedProductsController < ApplicationController
   def create
-
     @carted_product = CartedProduct.create(user_id: current_user.id,
                                            monster_id: params[:monster_id],
                                            quantity: params[:quantity],
@@ -23,5 +22,13 @@ class CartedProductsController < ApplicationController
       redirect_to '/'
       flash[:warning] = "You need to buy some monsters before checking out!"
     end
+  end
+
+  def destroy
+    @monster = CartedProduct.find(params[:product])
+    @monster.update(status: 'removed')
+
+    redirect_to '/checkout'
+    flash[:success] = "Monster removed."
   end
 end
