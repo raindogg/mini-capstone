@@ -30,10 +30,11 @@
 <h3>Tax: <%= number_to_currency(@monster.tax) %></h3>
 <h3 class="<%= "discount-price" if @monster.discounted? %>">You pay: <%= number_to_currency(@monster.total) %></h3>
 <p>This monster is supplied by <a href="/suppliers/<%= @supplier.id %>"><%= @supplier.name %> </a></p>
-
+<% if current_user && current_user.admin %>
 <%= link_to 'Edit this monster', "/monsters/#{@monster.id}/edit" %>
 <br>
 <%= link_to 'Destroy this monster', "/monsters/#{@monster.id}", method: :delete %>
+<% end %>
 
 
 <h2>Buy this monster!</h2>

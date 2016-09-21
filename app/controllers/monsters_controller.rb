@@ -1,9 +1,12 @@
 class MonstersController < ApplicationController
-
+  before_action :authenticate_admin!, except: [:index, :show, :random]
+  
   def index
     @page_title = "All of the monsters"
     @list_title = "All available monsters:"
-    @monsters = Monster.all
+    @monsters = Monster.all.includes(:images) # makes it only one call 
+    # to the database stores the includes object as a hash - and 
+    # that object needs to be a table. 
     sort_attribute = params[:sort]
     sort_order = params[:sort_order]
     discounted = params[:discount]
@@ -33,7 +36,6 @@ class MonstersController < ApplicationController
       @monsters = @monsters.order(sort_attribute)
       @list_title = "All monsters by #{sort_attribute}"
     end
-
   end
 
   def show
@@ -87,8 +89,6 @@ class MonstersController < ApplicationController
     flash[:success] = "#{@monster.name} has been updated."
     Image.create(url: params[:image], monster_id: @monster.id) if params[:image]
     Image.create(url: params[:image_2], monster_id: @monster.id) if params[:image_2]
-
-    redirect_to "/monsters/#{@monster.id}"
   end
 
   def destroy

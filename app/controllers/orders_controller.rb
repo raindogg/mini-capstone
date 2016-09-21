@@ -1,20 +1,22 @@
 class OrdersController < ApplicationController
-  def create
-    @order = Order.new(user_id: current_user.id,
-                       subtotal: params[:subtotal])
- 
+  before_action :authenticate_user!
 
-    @order.calculate_tax
-    @order.calculate_total
-    @order.save
-    @order.update_carted_products
+  def create
+    @carted_products = current_user.currently_carted
+    @order = Order.create(user_id: current_user.id)
+
+    @carted_products.update_all(order_id: @order.id, status: 'purchased')
+
+    @order.calculate_totals
     
     redirect_to "/orders/#{@order.id}"
     flash[:success] = 'Order placed!'
   end
 
   def show
+
     @order = Order.find(params[:id])
     @user = @order.user
+    redirect_to '/' if @order.user_id != current_user.id
   end
 end

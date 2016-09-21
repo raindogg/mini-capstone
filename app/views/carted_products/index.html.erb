@@ -4,16 +4,10 @@
   <h3>Monster: <%= product.monster.name %></h3>
   <img src='<%= product.monster.top_image %>'>
   <h3>Quantity: <%= product.quantity%></h3>
-  <%= form_tag '/remove', method: :delete do %>
-    <%= hidden_field_tag :product, product.id %>
-    <%= submit_tag 'Remove monster from cart', class: 'entry' %>
-  <% end %>
+  <h3>Subtotal: <%= number_to_currency(product.subtotal) %></h3>
+  <%= link_to 'Remove monster', "/carted_products/#{product.id}", method: :delete %>
 <% end %>
-<h3>Subtotal: <%= number_to_currency(@subtotal) %></h3>
 
-<%= form_tag '/orders', method: :post do %>
-  <%= hidden_field_tag :subtotal, @subtotal %>
-<%= submit_tag 'Buy now!', class: 'entry' %>
+<button id="btn btn-default"><%= link_to 'Buy now!', '/orders', method: :post %></button>
 
-<% end %>
 </div>

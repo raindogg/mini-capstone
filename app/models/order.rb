@@ -1,7 +1,8 @@
 class Order < ApplicationRecord
   belongs_to :user
   has_many :carted_products
-
+  has_many :monsters, through: :carted_products
+  
   def pretty_created_at 
     created_at.strftime('%A, %b %d') 
   end
@@ -10,20 +11,16 @@ class Order < ApplicationRecord
     34000 + id
   end
 
+  def calculate_totals
+    subtotal_collector = 0 
 
-  def calculate_tax
-    self.tax = subtotal * 0.09
-  end
-
-  def calculate_total
-    self.total = subtotal + tax
-  end
-
-  def update_carted_products
-    products = User.find(user_id).carted_products
-    carted = products.where('status LIKE ?', 'carted')
-    carted.each do |item|
-      item.update(status: "purchased", order_id: id)
+    carted_products.each do |item|
+      subtotal_collector += item.subtotal
     end
+
+    self.subtotal = subtotal_collector
+    self.tax = subtotal_collector * 0.09
+    self.total = subtotal_collector + tax
+    save
   end
 end

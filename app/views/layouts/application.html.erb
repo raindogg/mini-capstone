@@ -16,8 +16,10 @@
         <ul class="dropdown-menu">
         <li><a href="/monsters">All monsters</a>
       </li>
+      <% if current_user && current_user.admin %>
       <li><a class="nav-link" href="/monsters/new">Submit a Monster</a>
       </li>
+      <% end %>
         <li><a class="nav-link" href="/monsters/random">Random Monster</a>
       </li>
       <li class="divider">
@@ -28,6 +30,7 @@
       </li>
       </ul>
       </li>
+      <% if current_user && current_user.admin %>
      <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Suppliers<span class="caret"></span></a>
         <ul class="dropdown-menu">
@@ -37,10 +40,12 @@
       </li>
       </ul>
       </li>
+      <% end %>
         <% if current_user %>
           <li><%= link_to 'Log out', '/logout', method: :delete %>
-          <li><a>Hello <%= current_user.name %></a></li>
-          <li><a href="/checkout">Your cart</a></li>
+          <li>
+          <%= link_to "<span class='glyphicon glyphicon-shopping-cart'></span> #{current_user.name}'s Cart (#{@cart_count})".html_safe, '/carted_products' %>
+          </li>
         <% else %>
           <li><a href="/signup">Sign up!</a></li>
           <li><a href='/login'>Log in</a></li>

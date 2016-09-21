@@ -1,5 +1,5 @@
 
-<h1>Thanks for your order <%= @user.name %>! A confirmation email will be sent to <%= @user.email %>. </h1>
+<h1>Thanks for your order <%= @user.name %>! A confirmation email will be sent to <%= @user.email %>.</h1>
 <div class="container">
 <h2>Order # <%= @order.id_present_to_customer %>:</h2>
 <% @order.carted_products.each do |item| %>

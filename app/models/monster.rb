@@ -2,9 +2,12 @@ class Monster < ApplicationRecord
   belongs_to :supplier
   has_many :images
   has_many :category_monsters
-  has_many :categories, through: :category_monsters
   has_many :carted_products
-  
+  has_many :categories, through: :category_monsters
+  has_many :orders, through: :carted_products
+ 
+  # could also have done has_many :users, through: :carted_products
+  # which would be a many-to-many association.
   def discounted?
     price <= 30 
   end
