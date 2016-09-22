@@ -1,11 +1,18 @@
 class Monster < ApplicationRecord
+  validates :name, presence: true
+  validates :name, uniqueness: true
+  validates :price, presence: true
+  validates :price, numericality: true
+  validates :description, presence: true
+  validates :description, length: {in: 100..300}
+
   belongs_to :supplier
   has_many :images
   has_many :category_monsters
   has_many :carted_products
   has_many :categories, through: :category_monsters
   has_many :orders, through: :carted_products
- 
+  
   # could also have done has_many :users, through: :carted_products
   # which would be a many-to-many association.
   def discounted?

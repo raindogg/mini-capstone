@@ -1,3 +1,7 @@
+<% @image.errors.full_messages.each do |error| %>
+  <h3><%= error %></h3>
+<% end %>
+
 <h1>Add a new image</h1>
 
 <%= form_tag '/images', class: 'form-horizontal' do %>

@@ -1,11 +1,15 @@
 class CartedProductsController < ApplicationController
   before_action :authenticate_user!
+  def new
+    @carted_product = CartedProduct.new
+  end
+
   def create
     @carted_product = CartedProduct.create(user_id: current_user.id,
                                            monster_id: params[:monster_id],
                                            quantity: params[:quantity],
                                            status: 'carted')
-
+    session[:cart_count] = nil
     flash[:success] = "Added to cart."
     redirect_to '/carted_products' 
   end
@@ -24,7 +28,7 @@ class CartedProductsController < ApplicationController
   def destroy
     @monster = CartedProduct.find(params[:id])
     @monster.update(status: 'removed')
-
+    session[:cart_count] = nil
     redirect_to '/carted_products'
     flash[:success] = "Monster removed."
   end

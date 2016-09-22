@@ -1,6 +1,7 @@
 class MonstersController < ApplicationController
   before_action :authenticate_admin!, except: [:index, :show, :random]
   
+  
   def index
     @page_title = "All of the monsters"
     @list_title = "All available monsters:"
@@ -54,23 +55,28 @@ class MonstersController < ApplicationController
 
   def new
     @page_title = "Add monster"
+    @monster = Monster.new
   end
 
   def create
     @page_title = "Added monster"
-    @monster = Monster.create(name: params[:name], 
-                              origin: params[:origin], 
-                              price: params[:price], 
-                              description: params[:description], 
-                              danger_rating: params[:danger],
-                              supplier_id: params[:supplier][:supplier_id])
+    @monster = Monster.new(name: params[:name], 
+                           origin: params[:origin], 
+                           price: params[:price], 
+                           description: params[:description], 
+                           danger_rating: params[:danger],
+                           supplier_id: params[:supplier][:supplier_id])
 
-    flash[:success] = "#{@monster.name} has been submitted."
+    if @monster.save
+      flash[:success] = "#{@monster.name} has been submitted."
 
-    Image.create(url: params[:image], monster_id: @monster.id) if params[:image]
-    Image.create(url: params[:image_2], monster_id: @monster.id) if params[:image_2]
+      Image.create(url: params[:image], monster_id: @monster.id) if params[:image]
+      Image.create(url: params[:image_2], monster_id: @monster.id) if params[:image_2]
 
-    redirect_to "/monsters/#{@monster.id}"
+      redirect_to "/monsters/#{@monster.id}"
+    else
+      render 'new.html.erb'
+    end
   end
 
   def edit 

@@ -24,8 +24,13 @@ class ApplicationController < ActionController::Base
   end
 
   def calculate_cart_count
-    if current_user
-      @cart_count = current_user.currently_carted.count
+    if current_user 
+      if session[:cart_count]
+        @cart_count = session[:cart_count]
+      else
+        @cart_count = current_user.currently_carted.count
+        session[:cart_count] = @cart_count
+      end
     else
       @cart_count = 0
     end

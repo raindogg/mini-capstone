@@ -1,3 +1,7 @@
+<% @supplier.errors.full_messages.each do |error| %>
+  <h3><%= error %></h3>
+<% end %>
+
 <h1>Become a supplier</h1>
 
 <%= form_tag '/suppliers', method: :post, class: "form-horizontal" do %>

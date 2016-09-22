@@ -4,12 +4,21 @@ class SuppliersController < ApplicationController
     @suppliers = Supplier.all
   end
 
+  def new
+    @supplier = Supplier.new
+  end
+
   def create
-    @supplier = Supplier.create(name: params[:name],
-                                email: params[:email],
-                                phone: params[:phone])
-    flash[:success] = "#{@supplier.name} has been submitted."
-    redirect_to "/suppliers/#{@supplier.id}"
+    @supplier = Supplier.new(name: params[:name],
+                             email: params[:email],
+                             phone: params[:phone])
+   
+    if @supplier.save
+      flash[:success] = "#{@supplier.name} has been submitted."
+      redirect_to "/suppliers/#{@supplier.id}"
+    else
+      render 'new.html.erb'
+    end
   end
 
   def show
