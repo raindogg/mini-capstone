@@ -1,8 +1,8 @@
-Supplier.create!([
-  {name: "Dr. Frankenstein", email: "vfranks@transu.com", phone: "(832)666-2938"},
-  {name: "Seth Brundle", email: "flyboy@gmail.com", phone: "(555)323-3558"},
-  {name: "MacReady", email: "mac@arcticbase.com", phone: "(333)328-5373"}
-])
+# Supplier.create!([
+#   {name: "Dr. Frankenstein", email: "vfranks@transu.com", phone: "(832)666-2938"},
+#   {name: "Seth Brundle", email: "flyboy@gmail.com", phone: "(555)323-3558"},
+#   {name: "MacReady", email: "mac@arcticbase.com", phone: "(333)328-5373"}
+# ])
 Monster.create!([
   {name: "Zombie", origin: "Varies, generally virus.", price: "15.0", description: "Reanimated corpse. Infects those it bites. Discounts offered for bulk orders.", danger_rating: 2, in_stock: true, supplier_id: 1},
   {name: "Vampyre", origin: "Sired by another vampire.", price: "50.0", description: "A bloodsucking creature of the night. No sparkles.", danger_rating: 4, in_stock: true, supplier_id: 2},
